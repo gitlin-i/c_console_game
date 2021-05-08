@@ -332,6 +332,7 @@ void battle(int n)//전투 시스템
 			if (value == space) {
   				cut(&judgment);
 				judgment_success(&judgment, &warrior);
+				fflush(stdin);
 			}
 			lastTime = clock();
 		}
