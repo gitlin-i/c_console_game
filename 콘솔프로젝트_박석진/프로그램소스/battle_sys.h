@@ -1,6 +1,5 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
-#pragma once
 #include <stdio.h>
 #include <time.h>
 #include <windows.h>
@@ -27,14 +26,14 @@ enum input
 };
 typedef struct _enemy {
 	int HP;
-	int load_bullet;
-	int loaded_bullet;
-	int effective_time;
+	int load_bullet; //최대 장전 가능한 총알 수
+	int loaded_bullet; // 현재 장전된 총알 수
+	int effective_time; //유효 판정 시간
 }enemy;
 typedef struct _player {
 	int HP;
-	int power;
-	int possible_attack;
+	int power; 
+	int possible_attack; // 방어 성공으로 획득한 공격 수 
 }player;
 typedef struct _judge
 {
@@ -49,7 +48,6 @@ player player_set(int x);
 void gotoxy(int x, int y);
 double random_second(double i, double j);
 int sec_to_milli(double sec);
-
 void cut_call();
 void cut(judge * judgment);
 void reload_call(int milli_sec);
@@ -66,6 +64,5 @@ void battle(int n);
 void result_print(enemy * outlaw, player * warrior);
 void game_explain();
 void title_draw();
-
 int menu_draw();
 int select_level();

@@ -7,18 +7,18 @@ enemy enemy_level(int x)
 	{
 		case 1:
 		{
-			enemy a = { 1,1,0 ,800};
+			enemy a = { 1,1,0 ,600};
 			return a;
 		}
 		
 		case 2:
 		{
-			enemy a = { 5,3,0 ,400};
+			enemy a = { 5,3,0 ,300};
 			return a;
 		}
 		case 3:
 		{
-			enemy a = { 10,5,0 ,100};
+			enemy a = { 10,10,0 ,100};
 			return a;
 		}
 	}
@@ -88,7 +88,7 @@ void shoot(judge * judgment,enemy * outlaw)
 {
 	if (outlaw->loaded_bullet > 0) 
 	{
-		shoot_call(sec_to_milli(random_second(0.5, 1.5)));
+		shoot_call(sec_to_milli(random_second(0.2, 1.2)));
 		ani_enemy_action(enemy_x, enemy_y);
 		outlaw->loaded_bullet--;
 		judgment->shoot_time = clock();
@@ -332,7 +332,8 @@ void battle(int n)//전투 시스템
 			if (value == space) {
   				cut(&judgment);
 				judgment_success(&judgment, &warrior);
-				fflush(stdin);
+				value = 0;
+				break;
 			}
 			lastTime = clock();
 		}
